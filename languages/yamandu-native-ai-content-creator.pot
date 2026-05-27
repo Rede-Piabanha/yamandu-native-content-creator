@@ -1,0 +1,651 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Yamandu Native AI Content Creator 1.0.0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Domain: yamandu-native-ai-content-creator\n"
+
+#: admin/class-settings.php
+msgid "(Gemini API) in the same project."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "A single Google API key can be used for both Vision and Gemini if enabled in your Google Cloud project. External requests stay disabled until you enable consent below."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Activate billing for the project and enable the"
+msgstr ""
+
+#: admin/class-admin.php admin/class-settings.php includes/class-core.php
+msgid "Yamandu"
+msgstr ""
+
+#: includes/class-core.php
+msgid "Yamandu can send data to third-party services in order to generate post text and image metadata such as image titles and alt text for SEO and accessibility. These requests only run after an administrator explicitly enables third-party requests in the plugin settings."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Yamandu Image Generator"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Yamandu is currently paused for external requests."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Yamandu requires a Google API key."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Allow regular Generate actions to overwrite existing eligible fields. Regenerate actions always overwrite eligible fields."
+msgstr ""
+
+#: admin/class-admin.php admin/class-settings.php includes/class-core.php
+msgid "Alt text"
+msgstr ""
+
+#: includes/class-core.php
+msgid "and"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "and enable third-party requests to use remote image analysis and metadata generation."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "API"
+msgstr ""
+
+#: includes/class-ajax.php
+msgid "API client is not available."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "API key"
+msgstr ""
+
+#: includes/class-api-client.php includes/class-generator.php
+msgid "API key is missing."
+msgstr ""
+
+#: admin/class-admin.php includes/class-ajax.php includes/class-generator.php
+msgid "API key is not configured."
+msgstr ""
+
+#: admin/class-admin.php includes/class-ajax.php
+msgid "API key removed."
+msgstr ""
+
+#: includes/class-ajax.php includes/class-api-client.php
+msgid "API key validated successfully."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "API key validated."
+msgstr ""
+
+#: admin/class-admin.php includes/class-ajax.php includes/class-api-client.php
+msgid "API key validation failed."
+msgstr ""
+
+#: includes/class-core.php
+msgid "are Google services configured with your API key. Processing is subject to Google\u2019s terms and privacy policy."
+msgstr ""
+
+#: includes/class-generator.php
+msgid "Cause:"
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Choose whether manual and Media Library bulk runs generate image titles, alt text, or both. Regenerate actions always replace eligible fields."
+msgstr ""
+
+#: admin/class-settings.php includes/class-core.php
+msgid "Cloud Vision API"
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Control whether the plugin may send data to configured third-party services and whether plugin data should be removed when uninstalling."
+msgstr ""
+
+#: includes/class-generator.php
+msgid "Could not create the media library item."
+msgstr ""
+
+#: includes/class-generator.php
+msgid "Could not retrieve image URL."
+msgstr ""
+
+#: includes/class-generator.php
+msgid "Could not save the generated image."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Create an"
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Data removal on uninstall"
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Delete free plugin settings and cached plugin data when the plugin is uninstalled."
+msgstr ""
+
+#: includes/class-core.php
+msgid "Derived signals produced during analysis (for example: labels, detected text/OCR output, web entities, and logo detection results), which may be included in the prompt used to generate metadata."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Describe a new image and save the generated file directly to the Media Library."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Describe the image you want to create."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Disabled by default. When unchecked, uninstall preserves the free plugin data."
+msgstr ""
+
+#: includes/class-generator.php
+msgid "Empty model output."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Enable the"
+msgstr ""
+
+#: admin/class-admin.php includes/class-ajax.php
+msgid "Enter an API key to validate it."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Enter an image prompt first."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Error"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Error:"
+msgstr ""
+
+#: includes/class-core.php
+msgid "Existing attachment metadata (such as title and alt text) when you regenerate content for an attachment."
+msgstr ""
+
+#: includes/class-generator.php
+msgid "Failed to update attachment post fields."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Fields to generate"
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Follow the steps below to configure the API key and enable the required APIs in Google Cloud."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Gemini"
+msgstr ""
+
+#: includes/class-core.php
+msgid "Gemini API (Generative Language API)"
+msgstr ""
+
+#: includes/class-generator.php
+msgid "Gemini did not return valid JSON for metadata."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Gemini model"
+msgstr ""
+
+#: includes/class-generator.php
+msgid "Gemini returned an empty response."
+msgstr ""
+
+#: includes/class-generator.php
+msgid "Gemini returned no text output."
+msgstr ""
+
+#: includes/class-generator.php
+msgid "Gemini returned placeholder metadata. Check logs and site language."
+msgstr ""
+
+#: includes/class-generator.php
+msgid "Gemini truncated output (MAX_TOKENS)."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Generate image with AI"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Generate metadata with AI"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Generate title and alt text for this image using Cloud Vision and Gemini."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Generate with AI"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Generated"
+msgstr ""
+
+#: includes/class-core.php
+msgid "Generated metadata is stored in your WordPress database as attachment fields such as the post title and the image alt text meta."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Generating..."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Generative Language API"
+msgstr ""
+
+#: admin/class-admin.php includes/class-ajax.php
+msgid "Generator is not available."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Go to"
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Google API key"
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Google Cloud Console"
+msgstr ""
+
+#: includes/class-core.php
+msgid "Google Privacy Policy"
+msgstr ""
+
+#: admin/class-settings.php
+msgid "I understand that selected images and related metadata may be sent to configured third-party services and I want to enable these requests."
+msgstr ""
+
+#: includes/class-api-client.php
+msgid "Image content is missing."
+msgstr ""
+
+#: includes/class-core.php
+msgid "Image file content for attachments you choose to process manually."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Image generated"
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Image generation model"
+msgstr ""
+
+#: includes/class-ajax.php includes/class-generator.php
+msgid "Image generator is not available."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Image processed successfully."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "image processed successfully."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Image prompt"
+msgstr ""
+
+#: includes/class-ajax.php includes/class-api-client.php includes/class-generator.php
+msgid "Image prompt is missing."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Imagen 4"
+msgstr ""
+
+#: includes/class-core.php
+msgid "Images and extracted text may contain personal data. By enabling and using this plugin, you confirm you have the appropriate rights and lawful basis to process and send this data to third parties (for example under GDPR/UK GDPR, CCPA/CPRA, LGPD, and similar laws). You are responsible for updating your site privacy policy and obtaining any required consents."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "images processed successfully."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "in APIs & Services > Credentials and restrict it to Cloud Vision API and Generative Language API when possible."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "In the"
+msgstr ""
+
+#: includes/class-ajax.php
+msgid "Invalid attachment ID."
+msgstr ""
+
+#: includes/class-generator.php
+msgid "Invalid Gemini API response."
+msgstr ""
+
+#: includes/class-ajax.php
+msgid "Invalid image attachment."
+msgstr ""
+
+#: includes/class-ajax.php
+msgid "Invalid nonce."
+msgstr ""
+
+#: includes/class-generator.php
+msgid "Invalid or empty Vision API response."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "item could not be processed."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "items could not be processed."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Last error:"
+msgstr ""
+
+#: includes/class-core.php
+msgid "Learn more:"
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Manual generation"
+msgstr ""
+
+#: includes/class-generator.php
+msgid "Missing Gemini API key."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Nano Banana"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "No changes"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "No changes were made (fields already filled, overwrite disabled, or nothing eligible)."
+msgstr ""
+
+#: includes/class-generator.php
+msgid "No Gemini models available."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "No selected images could be processed."
+msgstr ""
+
+#: admin/class-admin.php admin/class-settings.php
+msgid "Not validated"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "One or more selected items were not editable images."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Open Yamandu settings"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Open generated image"
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Overwrite behavior"
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Paste the key here, enable third-party requests below, click \u201CValidate API Key\u201D, choose the Gemini model, and save changes."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Privacy and data handling"
+msgstr ""
+
+#: includes/class-core.php
+msgid "Privacy considerations and compliance"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Regenerate metadata with AI"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Regenerate with AI"
+msgstr ""
+
+#: includes/class-api-client.php
+msgid "Remote request failed."
+msgstr ""
+
+#: includes/class-api-client.php
+msgid "Remote service returned an invalid JSON response."
+msgstr ""
+
+#: admin/class-admin.php admin/class-settings.php
+msgid "Remove key"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Removing..."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Required for API validation and metadata generation."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Save changes"
+msgstr ""
+
+#: admin/class-settings.php
+msgid "select (or create) a project."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Settings"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Settings page is not available."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Settings \u2192 Yamandu"
+msgstr ""
+
+#: includes/class-core.php
+msgid "Site language/locale and plugin settings relevant to generation, such as the selected model."
+msgstr ""
+
+#: includes/class-core.php
+msgid "The data is sent to analyze images and generate meaningful metadata to improve accessibility (alt text) and SEO (title and alt text)."
+msgstr ""
+
+#: includes/class-generator.php
+msgid "The generated image data is invalid."
+msgstr ""
+
+#: includes/class-core.php
+msgid "The plugin may cache the list of available Gemini models using WordPress transients to improve performance."
+msgstr ""
+
+#: includes/class-core.php
+msgid "The plugin stores whether third-party requests are enabled and whether plugin data should be deleted on uninstall."
+msgstr ""
+
+#: includes/class-core.php
+msgid "The plugin stores your API key and related settings in the WordPress options table to authenticate requests to third-party APIs."
+msgstr ""
+
+#: includes/class-generator.php
+msgid "The provided ID is not an attachment."
+msgstr ""
+
+#: includes/class-generator.php
+msgid "The provided ID is not an image."
+msgstr ""
+
+#: includes/class-api-client.php
+msgid "The remote service did not return an image."
+msgstr ""
+
+#: includes/class-ajax.php
+msgid "The selected attachment is not an editable image."
+msgstr ""
+
+#: includes/class-ajax.php
+msgid "The selected attachment is not an image."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Third-party requests"
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Third-party requests are currently disabled. API validation and image metadata generation remain unavailable until you enable consent below and save the settings."
+msgstr ""
+
+#: admin/class-admin.php includes/class-ajax.php includes/class-api-client.php includes/class-generator.php
+msgid "Third-party requests are disabled. Enable consent in the plugin settings to continue."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "This attachment is not an image."
+msgstr ""
+
+#: admin/class-admin.php admin/class-settings.php includes/class-core.php
+msgid "Title"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "to add your key."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Unknown error."
+msgstr ""
+
+#: admin/class-settings.php
+msgid "Used only when creating new images from the Media Library."
+msgstr ""
+
+#: admin/class-admin.php admin/class-settings.php
+msgid "Validate API Key"
+msgstr ""
+
+#: admin/class-admin.php admin/class-settings.php
+msgid "Validated"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Validating..."
+msgstr ""
+
+#: includes/class-core.php
+msgid "What data is sent"
+msgstr ""
+
+#: includes/class-core.php
+msgid "What is stored on your site"
+msgstr ""
+
+#: includes/class-core.php
+msgid "Where the data is sent"
+msgstr ""
+
+#: includes/class-core.php
+msgid "Why the data is sent"
+msgstr ""
+
+#: admin/class-settings.php
+msgid "You do not have permission to access this page."
+msgstr ""
+
+#: includes/class-ajax.php
+msgid "You do not have permission to edit this attachment."
+msgstr ""
+
+#: admin/class-admin.php includes/class-ajax.php
+msgid "You do not have permission to perform this action."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Yamandu Text Generator"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Text prompt"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Describe the text you want to create for this post."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Generate text with AI"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Enter a text prompt first."
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Text generated"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Insert into editor"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Replace selection"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Copy text"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Copied"
+msgstr ""
+
+#: admin/class-admin.php
+msgid "Could not find the post editor."
+msgstr ""
+
+#: includes/class-generator.php
+msgid "Gemini truncated output. Try a narrower prompt."
+msgstr ""
+
+#: includes/class-core.php
+msgid "Text prompts and optional selected post text when you use the post editor text generator."
+msgstr ""
+
+#: includes/class-core.php
+msgid "Generated post text is inserted only when an editor chooses to insert or replace content in the post editor."
+msgstr ""
