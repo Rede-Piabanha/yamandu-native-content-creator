@@ -1,231 +1,202 @@
-# Yamandu Native AI Content Creator
+# Browser Notification Triggered Periodic Random Button Clicker
 
 ## Visão geral
 
-`Yamandu Native AI Content Creator` é um plugin WordPress para geração de textos, imagens e metadados de mídia com inteligência artificial dentro dos fluxos nativos do painel administrativo.
+`Browser Notification Triggered Periodic Random Button Clicker` é uma extensão Chrome em Manifest V3 para preparar rodadas periódicas de seleção de botões em uma página específica do Enjoei, disparadas por alarmes internos e notificações do navegador.
 
-A ferramenta adiciona recursos de IA ao editor de posts, à Biblioteca de Mídia e às telas de edição de anexos, permitindo gerar textos editoriais por prompt, criar imagens diretamente no WordPress e produzir títulos e textos alternativos para imagens com foco em organização, SEO e acessibilidade.
+A extensão mantém uma aba dedicada da loja, percorre a página, identifica botões com indícios de ação de megafone, seleciona uma quantidade aleatória de itens por rodada, destaca visualmente os botões encontrados e emite uma notificação para o usuário abrir a aba preparada.
 
-O objetivo é apoiar equipes editoriais, sites de conteúdo, agências e administradores WordPress que precisam acelerar a produção sem abandonar os campos, telas e controles nativos do WordPress.
+O objetivo do projeto é testar um fluxo de automação controlada por notificação, com seleção randômica de botões, persistência do estado em `chrome.storage.local` e registro técnico da última rodada executada.
 
 ## Funcionalidades
 
-- Gera textos para posts a partir de prompts no editor do WordPress.
-- Suporta fluxos de uso no Gutenberg e no Classic Editor.
-- Insere o texto gerado no editor ou substitui o trecho selecionado.
-- Copia o texto gerado para uso manual.
-- Cria imagens por prompt e salva o arquivo diretamente na Biblioteca de Mídia.
-- Gera título de anexo para imagens.
-- Gera texto alternativo para imagens.
-- Permite geração individual na tela de edição do anexo.
-- Adiciona ações rápidas na listagem da Biblioteca de Mídia.
-- Adiciona ações em massa para processar imagens selecionadas.
-- Permite controlar quais campos serão gerados: título, texto alternativo ou ambos.
-- Permite definir se a geração comum pode sobrescrever campos existentes.
-- Mantém a regeneração como ação intencional de substituição.
-- Valida a chave de API no painel de configurações.
-- Lista modelos Gemini disponíveis conforme a chave configurada.
-- Permite escolher modelo de texto e modelo de geração de imagem.
-- Mantém requisições externas bloqueadas até o consentimento explícito do administrador.
-- Permite preservar ou remover dados do plugin na desinstalação.
+- Executa como extensão Chrome Manifest V3.
+- Usa `service_worker.js` como processo de fundo.
+- Injeta `content.js` em páginas do Enjoei.
+- Mantém uma aba dedicada para a loja configurada.
+- Agenda rodadas periódicas por `chrome.alarms`.
+- Define intervalos randômicos entre rodadas.
+- Seleciona uma quantidade randômica de botões por rodada.
+- Procura botões com termos relacionados a megafone, promoção ou impulsionamento.
+- Ignora botões invisíveis, desabilitados, já selecionados ou indisponíveis.
+- Tenta diversificar itens por marca e tipo de produto.
+- Destaca visualmente botões e cards selecionados.
+- Exibe notificação persistente quando uma rodada está pronta.
+- Ao clicar na notificação, abre e foca a aba preparada.
+- Armazena dados operacionais em `chrome.storage.local`.
+- Registra a última rodada e o último log de revelação.
+- Permite ativar e pausar a extensão pelo ícone da barra do navegador.
 
 ## Quando usar
 
-Use este plugin quando precisar incorporar IA generativa ao fluxo editorial de um site WordPress sem criar uma plataforma paralela de produção de conteúdo.
+Use esta extensão para testar fluxos de automação de interface em páginas do Enjoei quando for necessário selecionar botões em intervalos randômicos, preparar uma aba em segundo plano e acionar o fluxo a partir de uma notificação do navegador.
 
-Ele é útil para blogs, portais, sites institucionais, operações de SEO, equipes de marketing e administradores que precisam produzir rascunhos, imagens e metadados de mídia com mais velocidade, mantendo revisão humana e controle sobre o que será publicado.
-
-O Yamandu não substitui planejamento editorial, revisão profissional, auditoria técnica de SEO ou validação humana de acessibilidade. Ele atua como ferramenta operacional para acelerar tarefas repetitivas e apoiar a criação dentro do próprio WordPress.
+A ferramenta foi criada para um cenário específico de página, seletor semântico e comportamento de botões do Enjoei. Ela não é uma automação genérica para qualquer site, não possui painel visual próprio e depende da estrutura atual do DOM da página analisada.
 
 ## Estrutura do projeto
 
-- `yamandu-native-ai-content-creator.php`: arquivo principal do plugin, responsável por carregar constantes, inicialização, integração com Freemius, ativação, desativação e rotina de desinstalação condicionada.
-- `includes/class-core.php`: núcleo do plugin, carregamento das classes, opções padrão, campos suportados, recursos disponíveis e conteúdo de privacidade.
-- `includes/class-utils.php`: funções utilitárias para sanitização, normalização de texto, validação de anexos, caminhos, URLs e conversões internas.
-- `includes/class-api-client.php`: cliente de integração com APIs externas, chamadas ao Gemini, geração de imagem, validação da chave, listagem de modelos e chamadas ao Cloud Vision.
-- `includes/class-generator.php`: lógica de geração de metadados, textos e imagens, incluindo preparo de contexto, tratamento de respostas, gravação de anexos e geração de arquivos na Biblioteca de Mídia.
-- `includes/class-ajax.php`: endpoints AJAX e ações administrativas para geração, validação de chave, remoção de chave, geração de texto, geração de imagem e processamento individual.
-- `admin/class-admin.php`: integração com telas administrativas, menus, notices, assets, metaboxes, ações rápidas, ações em massa e caixas de geração.
-- `admin/class-settings.php`: registro, sanitização e renderização da página de configurações.
-- `assets/js/admin.js`: comportamento da interface no painel, botões de IA, chamadas AJAX e inserção de resultados.
-- `assets/css/admin.css`: estilos administrativos do plugin.
-- `languages/yamandu-native-ai-content-creator.pot`: arquivo base de tradução.
-- `readme.txt`: readme no formato do repositório oficial de plugins do WordPress.
-- `uninstall.php`: tratamento de segurança para desinstalação direta.
+- `manifest.json`: define a extensão Chrome, permissões, host permitido, service worker, content script, ação da extensão e ícones.
+- `service_worker.js`: controla ativação, pausa, agendamento de rodadas, criação de notificações, abertura da aba dedicada, injeção do content script e persistência do estado.
+- `content.js`: executa dentro da página do Enjoei, coleta botões candidatos, identifica cards de produto, aplica seleção randômica, destaca elementos e responde às mensagens do service worker.
+- `icons/`: diretório com os ícones da extensão em diferentes tamanhos.
 
 ## Pré-requisitos
 
-- WordPress 5.8 ou superior.
-- PHP 7.4 ou superior.
-- Permissão administrativa no WordPress para configurar o plugin.
-- Permissão de edição de posts para usar o gerador de texto.
-- Permissão de upload e edição de mídia para gerar imagens e metadados.
-- Projeto no Google Cloud com APIs necessárias habilitadas.
-- Chave de API do Google Cloud com acesso aos serviços usados pelo plugin.
+- Google Chrome ou navegador compatível com extensões Manifest V3.
+- Acesso a `chrome://extensions`.
+- Modo do desenvolvedor ativado no navegador.
+- Página do Enjoei acessível pelo navegador.
+- Permissão para carregar extensão não empacotada.
 
-## APIs utilizadas
+## Instalação local
 
-A versão 1.0.0 utiliza serviços do Google para análise e geração:
-
-- Cloud Vision API, usada na análise de imagens existentes.
-- Gemini API / Generative Language API, usada na geração de textos, metadados e imagens.
-- Modelos Gemini disponíveis para geração de texto conforme validação da chave.
-- Modelos de imagem configuráveis no painel do plugin, conforme opções disponíveis na versão instalada.
-
-O uso das APIs pode consumir cotas ou gerar custos no projeto Google Cloud. Revise faturamento, limites, permissões e restrições de chave antes de usar o plugin em produção ou em processamento em massa.
-
-## Instalação
-
-1. Envie a pasta `yamandu-native-ai-content-creator` para `/wp-content/plugins/`.
-2. Também é possível instalar o plugin por ZIP em `Plugins > Adicionar novo > Enviar plugin`.
-3. Ative o plugin no painel do WordPress.
-4. Acesse `Configurações > Yamandu`.
-5. Configure a chave de API.
-6. Habilite o consentimento para requisições externas.
-7. Valide a chave.
-8. Escolha os modelos desejados.
-9. Salve as configurações.
-
-## Configuração no Google Cloud
-
-No Google Cloud Console, selecione ou crie um projeto.
-
-Ative o faturamento do projeto, quando necessário, e habilite as APIs usadas pelo plugin:
-
-- Cloud Vision API.
-- Generative Language API.
-
-Depois, crie uma chave em `APIs e serviços > Credenciais`.
-
-Quando possível, restrinja a chave apenas às APIs necessárias. Não publique a chave em repositórios, páginas públicas, temas, snippets ou arquivos expostos.
-
-## Configuração do plugin
-
-Acesse:
+1. Baixe ou clone este repositório.
+2. Abra o Chrome.
+3. Acesse:
 
 ```text
-Configurações > Yamandu
+chrome://extensions
 ```
 
-Na seção de API, informe a chave do Google Cloud e valide o acesso.
+4. Ative o `Modo do desenvolvedor`.
+5. Clique em `Carregar sem compactação`.
+6. Selecione a pasta do repositório.
+7. Confirme se a extensão aparece na lista de extensões instaladas.
 
-A validação depende do consentimento para requisições externas. Se as requisições de terceiros estiverem desativadas, o plugin mantém a geração bloqueada.
+## Configuração principal
 
-Depois da validação, selecione:
+A URL da loja é definida diretamente em `service_worker.js`:
 
-- Modelo Gemini para geração de texto.
-- Modelo de geração de imagem.
-- Campos de mídia que podem ser gerados.
-- Comportamento de sobrescrita.
-- Política de remoção de dados na desinstalação.
+```js
+const SHOP_URL = 'https://www.enjoei.com.br/@rafaela-e753ff?sid=d442a1b2-fd20-4e08-a3cc-19aa36f4a429-1780377161587';
+```
 
-## Geração de texto em posts
+Os parâmetros operacionais também ficam no início de `service_worker.js`:
 
-Abra um post no editor do WordPress.
+```js
+const MIN_ITEMS = 5;
+const MAX_ITEMS = 9;
+const MIN_INTERVAL_MINUTES = 11;
+const MAX_INTERVAL_MINUTES = 22;
+const DEFAULT_MAX_PAGE = 1;
+const LOAD_TIMEOUT_MS = 30000;
+const RETRY_ATTEMPTS = 4;
+```
 
-Na caixa `Yamandu Text Generator`, informe o prompt com a orientação do texto desejado e clique em `Generate text with AI`.
+### Parâmetros
 
-O resultado pode ser:
+- `SHOP_URL`: página da loja usada como origem das rodadas.
+- `MIN_ITEMS`: quantidade mínima de botões selecionados por rodada.
+- `MAX_ITEMS`: quantidade máxima de botões selecionados por rodada.
+- `MIN_INTERVAL_MINUTES`: intervalo mínimo entre rodadas.
+- `MAX_INTERVAL_MINUTES`: intervalo máximo entre rodadas.
+- `DEFAULT_MAX_PAGE`: página máxima usada quando a extensão não consegue detectar paginação.
+- `LOAD_TIMEOUT_MS`: tempo máximo de espera pelo carregamento da aba.
+- `RETRY_ATTEMPTS`: quantidade de tentativas para encontrar botões válidos.
 
-- inserido no editor;
-- usado para substituir o trecho selecionado;
-- copiado para revisão manual.
+## Como usar
 
-O gerador considera o idioma do site, o título do post e, quando houver, o texto selecionado como contexto. O conteúdo gerado deve ser revisado antes da publicação.
+1. Clique no ícone da extensão para ativar.
+2. A extensão cria ou reutiliza uma aba dedicada da loja.
+3. A primeira rodada é preparada imediatamente.
+4. Quando a rodada fica pronta, uma notificação é exibida.
+5. Clique na notificação para abrir a aba preparada.
+6. A aba será focada e os botões selecionados serão destacados.
+7. Clique novamente no ícone da extensão para pausar novas rodadas.
 
-## Geração de imagens
+Quando pausada, a extensão limpa o alarme ativo e deixa de preparar novas rodadas até ser reativada.
 
-Acesse a Biblioteca de Mídia.
+## Funcionamento técnico
 
-Na caixa `Yamandu Image Generator`, descreva a imagem desejada no campo de prompt e gere o arquivo.
+O fluxo principal é dividido em duas partes.
 
-Quando a geração é concluída, o plugin salva a imagem como um novo item da Biblioteca de Mídia e disponibiliza o link de edição do anexo.
+No `service_worker.js`, a extensão:
 
-Também é possível gerar imagem a partir da tela de edição de um anexo, mantendo referência interna ao anexo de origem quando aplicável.
+1. alterna entre estado ativo e pausado;
+2. cria ou recupera uma aba dedicada;
+3. descobre a quantidade máxima de páginas, quando possível;
+4. escolhe uma página aleatória;
+5. envia a mensagem `RP_PREPARE` ao content script;
+6. salva a rodada em `chrome.storage.local`;
+7. cria uma notificação persistente;
+8. agenda a próxima rodada com intervalo randômico.
 
-## Geração de metadados de imagem
+No `content.js`, a extensão:
 
-O plugin trabalha com imagens da Biblioteca de Mídia e pode gerar:
+1. rola a página para carregar itens;
+2. coleta elementos clicáveis;
+3. filtra botões visíveis e potencialmente megafonáveis;
+4. identifica o card de produto associado ao botão;
+5. remove candidatos desabilitados ou já selecionados;
+6. tenta diversificar a seleção por marca e tipo;
+7. aplica destaque visual nos botões e cards;
+8. retorna ao service worker os dados da rodada.
 
-- título do anexo;
-- texto alternativo.
+## Mensagens internas
 
-Na tela de edição de uma imagem, use os botões de geração ou regeneração de metadados.
+O `content.js` responde às seguintes mensagens:
 
-Na listagem da Biblioteca de Mídia, use as ações rápidas para processar uma imagem individualmente.
+- `RP_PREPARE`: coleta, filtra, seleciona e destaca botões da rodada.
+- `RP_DISCOVER`: tenta identificar a maior página disponível na paginação.
+- `RP_REVEAL`: revela a seleção existente ao clicar na notificação ou tenta recuperar a seleção salva.
 
-Para processar várias imagens, selecione os anexos desejados e use as ações em massa do Yamandu.
+## Dados armazenados
 
-## Geração e regeneração
+A extensão usa `chrome.storage.local` para armazenar estado operacional.
 
-A geração comum pode respeitar campos já preenchidos, conforme configuração administrativa.
+Entre os dados gravados estão:
 
-A regeneração é uma ação intencional de substituição e pode sobrescrever campos elegíveis.
+- `active`: indica se a extensão está ativa.
+- `tabId`: identifica a aba dedicada usada pela extensão.
+- `maxPage`: maior página detectada.
+- `maxPageTrusted`: indica se a paginação detectada é confiável.
+- `nextAt`: horário previsto da próxima rodada.
+- `nextDelayMinutes`: intervalo sorteado para a próxima rodada.
+- `lastRound`: última rodada preparada.
+- `lastStatus`: último status operacional.
+- `lastRevealLog`: último log retornado ao clicar na notificação.
 
-Esse comportamento evita substituição acidental de metadados existentes e mantém controle editorial sobre o uso da IA.
+## Permissões da extensão
 
-## Dados enviados a serviços externos
+A extensão solicita as seguintes permissões:
 
-Dependendo da ação executada, o plugin pode enviar aos serviços configurados:
+- `alarms`: agenda rodadas periódicas.
+- `storage`: salva estado local, última rodada e logs.
+- `tabs`: cria, atualiza, consulta e foca a aba dedicada.
+- `scripting`: injeta o content script quando necessário.
+- `notifications`: cria notificações de ativação, pausa, erro e rodada pronta.
 
-- conteúdo de imagem selecionada;
-- URL ou arquivo de imagem;
-- título atual do anexo;
-- texto alternativo existente;
-- termos derivados do nome do arquivo;
-- idioma do site;
-- dados de análise de imagem;
-- textos detectados na imagem;
-- entidades, rótulos e logotipos detectados;
-- prompts de geração;
-- trecho selecionado no editor de posts;
-- configurações de modelo necessárias para a requisição.
+A permissão de host é restrita a:
 
-As requisições externas só são executadas após o administrador habilitar explicitamente essa permissão nas configurações.
+```text
+https://www.enjoei.com.br/*
+```
 
-## Dados armazenados no WordPress
+## Comportamento atual da sequência final
 
-O plugin armazena suas configurações na tabela de opções do WordPress.
+Na versão atual, a função responsável pela sequência final percorre os botões visíveis e executa `button.click()` com atraso progressivo.
 
-Entre os dados armazenados estão:
+Isso significa que o comportamento atual não é apenas visual ou de log. A sequência pode acionar os botões selecionados na página.
 
-- chave de API configurada;
-- hash interno da chave;
-- status de validação;
-- modelo selecionado;
-- modelo de imagem selecionado;
-- consentimento para requisições externas;
-- campos habilitados para geração;
-- comportamento de sobrescrita;
-- preferência de remoção de dados na desinstalação.
-
-Também podem ser usados transients para cache de modelos Gemini disponíveis.
-
-Os metadados gerados são gravados nos campos nativos do WordPress, como título do anexo e `_wp_attachment_image_alt`.
-
-## Desinstalação
-
-Por padrão, a desinstalação preserva as configurações do plugin.
-
-Para remover dados do plugin ao desinstalar, habilite a opção de remoção de dados na tela de configurações antes de excluir o plugin.
-
-Quando essa opção está ativa, o plugin remove suas opções e caches internos relacionados.
+Se a intenção for manter a extensão em modo de auditoria, sem clique real, a função `sequenceHelloWorldLogs()` deve ser ajustada para exibir o texto `hello world` sobre cada botão e registrar a sequência no console ou em `chrome.storage.local`, sem chamar `button.click()`.
 
 ## Limites e comportamento esperado
 
-- A geração depende da disponibilidade das APIs externas.
-- Firewalls, bloqueios de servidor, cotas, faturamento ou restrições de chave podem impedir as requisições.
-- Apenas anexos de imagem são processados nos fluxos de metadados.
-- O gerador de texto atua em posts editáveis pelo usuário.
-- Campos existentes só devem ser substituídos conforme ação e configuração escolhidas.
-- Respostas de IA podem exigir revisão, ajuste editorial e validação factual.
-- Processamentos em massa devem ser usados com cautela em bibliotecas grandes.
-- Imagens e textos enviados a serviços externos podem conter dados pessoais ou sensíveis.
+- A extensão depende da estrutura atual do DOM do Enjoei.
+- Mudanças em classes, textos, botões ou paginação podem reduzir a precisão da seleção.
+- A detecção de botões é heurística e baseada em texto, atributos, classes e contexto do card.
+- A seleção randômica pode retornar menos itens quando não houver candidatos suficientes.
+- A aba dedicada pode ser perdida se for fechada manualmente.
+- O service worker do Manifest V3 pode ser encerrado pelo navegador entre eventos.
+- O log salvo em `chrome.storage.local` representa apenas a última revelação recebida.
+- A função de overlay visual está parcialmente preparada, mas a sequência atual executa clique real.
+- O projeto não possui painel de configuração próprio.
+- Os parâmetros precisam ser alterados diretamente no código.
 
 ## Observações
 
-- O Yamandu foi desenvolvido para operar dentro de fluxos nativos do WordPress, sem criar uma camada editorial proprietária.
-- O plugin não publica conteúdo automaticamente.
-- O administrador mantém controle sobre chave de API, modelos, consentimento, campos elegíveis e sobrescrita.
-- O resultado deve ser tratado como apoio editorial, não como conteúdo final sem revisão.
-- Em ambientes profissionais, revise política de privacidade, base legal, consentimentos e regras internas antes de usar IA com dados de usuários, imagens de pessoas ou informações sensíveis.
+- O projeto é específico para testes controlados em página do Enjoei.
+- A extensão não deve ser usada em páginas, contas ou fluxos sem autorização.
+- Antes de usar em produção, revise cuidadosamente a função de clique sequencial.
+- Para operação segura em modo de auditoria, substitua o clique automático por log visual e persistente.
+- Após qualquer alteração em `manifest.json`, `service_worker.js` ou `content.js`, recarregue a extensão em `chrome://extensions`.
