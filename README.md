@@ -27,7 +27,7 @@ O objetivo é apoiar equipes editoriais, sites de conteúdo, agências e adminis
 - Lista modelos Gemini disponíveis conforme a chave configurada.
 - Permite escolher modelo de texto e modelo de geração de imagem.
 - Mantém requisições externas bloqueadas até o consentimento explícito do administrador.
-- Permite preservar ou remover dados do plugin na desinstalação.
+- Permite preservar ou remover dados na desinstalação.
 
 ## Quando usar
 
@@ -229,3 +229,15 @@ Quando essa opção está ativa, o plugin remove suas opções e caches internos
 - O administrador mantém controle sobre chave de API, modelos, consentimento, campos elegíveis e sobrescrita.
 - O resultado deve ser tratado como apoio editorial, não como conteúdo final sem revisão.
 - Em ambientes profissionais, revise política de privacidade, base legal, consentimentos e regras internas antes de usar IA com dados de usuários, imagens de pessoas ou informações sensíveis.
+
+## Licença
+
+O Yamandu Native AI Content Creator é software livre licenciado sob a GNU General Public License, versão 2 ou qualquer versão posterior.
+
+SPDX-License-Identifier: `GPL-2.0-or-later`
+
+Copyright (C) 2026 Rede Piabanha.
+
+O texto integral da licença está disponível no arquivo [`LICENSE`](LICENSE).
+
+Componentes de terceiros incluídos neste repositório permanecem sujeitos às suas respectivas licenças. O Freemius WordPress SDK incluído em `vendor/freemius/` é distribuído sob `GPL-3.0-only`; consulte `vendor/freemius/LICENSE.txt` para os termos aplicáveis.
